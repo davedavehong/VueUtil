@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="javascript/jquery-2.1.4.min.js"></script>
+    <script src="javascript/vue.js"></script>
+    <script src="public/javascript/public.js"></script>
+    <script src="javascript/home.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
+    <style rel="stylesheet">
+
+        #reportTitle ul {
+            border-bottom: 1px solid #bbb;
+        }
+        #reportTitle ul li{
+            text-align: center;
+        }
+        #alertDate ul {
+            padding-right: 0;
+        }
+        .cut{
+            font-size: small;
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<div>列表</div>
+<ul id="example1">
+    <li v-for="item in items">
+        {{ item.mes }}
+    </li>
+</ul>
+<div id="reportTitle">
+    <ul class="nav">
+        <li class="col-xs-3">开始</li>
+        <li class="col-xs-3">结束</li>
+        <li class="col-xs-6">报警原因</li>
+    </ul>
+</div>
+<div id="alertDate">
+    <ul class="nav">
+        <li v-for="item in items">
+            <span class="col-xs-3 text-center">{{ item.startTime }}</span>
+            <span class="col-xs-3 text-center">{{ item.endTime }}</span>
+            <span class="col-xs-6 text-left">{{ item.reason }}</span>
+        </li>
+    </ul>
+    <div class="cut">--------我是分割线-----</div>
+    <ul class="nav col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <li v-for="item in items">
+            {{ item.startTime }}
+        </li>
+    </ul>
+    <ul class="nav col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        <li v-for="item in items">
+            {{ item.endTime }}
+        </li>
+    </ul>
+    <ul class="nav col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <li v-for="item in items">
+            {{ item.reason }}
+        </li>
+    </ul>
+</div>
+
+<div id="switch">
+    <button v-on:click="switchDATA">测试切换数据</button>
+</div>
+</body>
+</html>
